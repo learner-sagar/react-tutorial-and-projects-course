@@ -1,5 +1,6 @@
 import { useState } from "react";
 import data from "./data";
+import People from "./People";
 const App = () => {
   const [persons, setPersons] = useState(data);
   const handleClear = () => {
@@ -9,14 +10,8 @@ const App = () => {
     <div className="container">
       <h3>5 birthdays today</h3>
       {
-        persons.map(({id, name, age, image}) => (
-          <article className="person" key={id}>
-              <img src={image} alt={name} />
-              <div>
-                <h4>{name}</h4>
-                <p>{age} years</p>
-                </div>
-          </article>
+        persons.map((people) => (
+          <People people={people} />
         ))
       }
       <button className="btn btn-full-width" onClick={handleClear}>Clear All</button>
